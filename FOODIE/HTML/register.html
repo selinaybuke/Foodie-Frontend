@@ -7,22 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="../CSS/register.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js" integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../js/register.js"></script>
+    
 </head>
 
 <body>
     <div class="container">
         <div class="overlay" id="overlay">
-            <a href="../HTML/homepage.html">
+            <a href="../homepage.html">
                 <img src="../IMAGES/Screenshot_3.png" alt="logo" class="logo">
             </a>
             <div class="sign-in" id="sign-in">
                 <h1>Welcome!</h1>
                 <p>To keep connected with us please login with your personal info</p>
-                <button type="button" onClick="parent.location='/HTML/login.html'" class="switch-button">SIGN IN</button>
+                <button type="button" onClick="parent.location='login.html'" class="switch-button">SIGN IN</button>
             </div>
         </div>
         <div class="form">
-            <div class="sign-up" id="sign-up-info">
+            <div ng-app="RegisterApp" class="sign-up" id="sign-up-info">
                 <h1>Create Account</h1>
                 <div class="social-media-buttons">
                     <div class="icon">
@@ -45,11 +48,11 @@
                     </div>
                 </div>
                 <p class="small">or use your email for registration:</p>
-                <form id="sign-up-form">
-                    <input type="text" placeholder="Name" />
-                    <input type="email" placeholder="Email" />
-                    <input type="password" placeholder="Password" />
-                    <button type="button" onClick="parent.location='/HTML/login.html'" class="control-button up">SIGN UP</button>
+                <form id="sign-up-form" ng-controller="RegisterController">
+                    <input type="text" placeholder="Name" ng-model="register.name" />
+                    <input type="email" placeholder="Email" ng-model="register.email" />
+                    <input type="password" placeholder="Password" ng-model="register.password" />
+                    <button ng-click="saveUser()"type="button" class="control-button up">SIGN UP</button>
                 </form>
             </div>
         </div>
