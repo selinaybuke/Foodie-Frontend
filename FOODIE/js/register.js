@@ -21,6 +21,7 @@ angular.module('RegisterApp', [])
               xhr.addEventListener("readystatechange", function() {
                 if(this.readyState === 4) {
                   console.log(this.responseText);
+                  alert(this.responseText)
                 }
               });
               

@@ -17,7 +17,13 @@ angular.module('LoginApp', [])
               
               xhr.addEventListener("readystatechange", function() {
                 if(this.readyState === 4) {
-                  console.log(this.responseText);
+                 const response = JSON.parse(this.response)
+                 if (response.id != 0 ) {
+                  localStorage.setItem("userId",response.id)
+                  window.location.href = 'http://127.0.0.1:5501/FOODIE/HTML/myfridge.html';
+                 }
+                  
+                  
                 }
               });
               

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Fridge</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../CSS/myfridge.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <style>
+        div.scrollmenu {
+            position: relative;
+            top: -70px;
+            overflow-x: hidden;
+            overflow-y: visible;
+            white-space: nowrap;
+        }
+
+        div.scrollmenu a {
+            text-align: center;
+            padding: 14px;
+            text-decoration: none;
+        }
+
+        .fridgecards {
+            height: 219px;
+            margin-left: 250px;
+            width: 80%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="head">
+        <a href="../HTML/homepage.html">
+            <img src="/IMAGES/logo.png" alt="logo" class="nav-left">
+        </a>
+        <div class="navi-right">
+            <button type="button" class="fa-solid fa-right-from-bracket" aria-hidden="true"
+                onClick="parent.location='/HTML/homepage.html'" id="logout"></button>
+            <button type="button" class="fa fa-heart" aria-hidden="true"
+                onClick="parent.location='/HTML/favourite.html'" id="favourite"></button>
+            <button type="button" onClick="parent.location='/HTML/preferences.html'"
+                class="preferences">PREFERENCES</button>
+            <button type="button" onClick="parent.location='/HTML/homepage.html'" class="homepage">HOME</button>
+            <div id="wrap">
+                <form action="" autocomplete="off">
+                    <input id="search" name="search" type="text" placeholder="What're we looking for ?">
+                    <!-- <button id="search_submit" value="Rechercher" type="submit"   > </button> -->
+                    <button id="search_submit" value="Rechercher" type="submit" class="fa fa-search"></button>
+                </form>
+            </div>
+
+        </div>
+    </nav>
+    <main>
+        <h1>My Fridges</h1>
+        <div class="cards">
+            <div class="cards1">
+                <img src="../IMAGES/addsign.png" alt="adding" onClick="createFridge();" width="60px">
+                <p>Create new fridge</p>
+            </div>
+            <div style="margin-left: 150px; ">
+                <div class="fridgecards" id="fridgecards"></div>
+            </div>
+        </div>
+        <!-- <hr style="position:relative; top:-250px;  height:2px; opacity:46%; border-width:0;  margin-left: auto;
+            margin-right: auto; width:80%;color:black; background-color:black"> -->
+        <hr
+            style="position:relative; top: -70px; height:2px; opacity:46%; border-width:0; width:80%;color:black; background-color:black;">
+        <div id="fb">
+            <p id="info"><b>Name / ID</b> </p>
+            <div id="button-block">
+                <button id="ticksign" value="tick" type="submit" class="fa-solid fa-check"></button>
+                <button id="cancelsign" value="cancel" type="submit" class="fa-solid fa-xmark"></button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footerbacg"></div>
+        <img src="../IMAGES/logo.png" alt="logo" class="footerlogo" opacity: 100%;>
+    </footer>
+    <script>
+        var counter = 0;
+        function createFridge() {
+            document.getElementById("fridgecards").innerHTML += " <a><div class='cards3'><p>Dou Fridge</p></div></a>";
+            ++counter;
+            if (counter >= 5) {
+                document.getElementById("fridgecards").className += " scrollmenu"
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
