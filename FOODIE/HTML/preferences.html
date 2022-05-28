@@ -80,8 +80,16 @@
                 <div>
                     <input type="textbox" ng-model="allergen" ng-change="allergenChange()" />
                     <ul>
-                        <li ng-repeat="item in allergens ">
+                        <li  ng-click="allergy(item)" ng-repeat="item in allergens ">
                             {{item.name}}
+
+                        </li>
+                    </ul>
+                    <br>
+
+                    <ul>
+                        <li  ng-repeat="i in allergyList ">
+                            {{i.name}}
 
                         </li>
                     </ul>
@@ -90,7 +98,7 @@
 
 
                 </div>
-                <button ng-click="savePreferences()" type="button" value="save" onClick="/HTML/myfridge.html"
+                <button ng-click="savePreferences(); saveAllergenList()" type="button" value="save" onClick="/HTML/myfridge.html"
                     class="save">SAVE</button>
             </div>
         </div>

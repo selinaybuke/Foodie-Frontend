@@ -50,8 +50,58 @@ app.controller('checkPreferencesController', ['$scope', function ($scope) {
             }
         });
 
-        xhr.open("GET", "https://api.spoonacular.com/food/ingredients/autocomplete?query=" + $scope.allergen + "&number=5&apiKey=**********");
+        xhr.open("GET", "https://api.spoonacular.com/food/ingredients/autocomplete?query=" + $scope.allergen + "&number=5&apiKey=c41e117a8ec343168d08c412fd210144");
         //TODO API KEYİ UNUTMA
+
         xhr.send();
+    };
+    $scope.allergyList = [];
+
+ 
+    $scope.allergy = function (item) {
+        $scope.allergyList.push(item.name)
+        console.log($scope.allergyList)
+        
+
+
+
+    };
+ 
+    /*
+    $scope.saveAllergenList = function () { 
+        var dataList = [];
+        for (var i=0;i<$scope.allergyList.length;i++) {
+            var data = JSON.stringify(
+                {
+                  "name": $scope.allergyList[i],
+                  "spoonId": 32,
+                  "user": {
+                    "id": localStorage.getItem("userId")
+                  }
+                }
+              );
+              dataList.push(data)
+
+
+
+        }
+        
+
+     
+          
+          var xhr = new XMLHttpRequest();
+          
+          xhr.addEventListener("readystatechange", function() {
+            if(this.readyState === 4) {
+              console.log(this.responseText);
+            }
+          });
+          
+          xhr.open("POST", "http://localhost:8080/api/allergen/save");
+          xhr.setRequestHeader("Content-Type", "application/json");
+          xhr.send(data)
+
     }
+    */
+
 }]);
