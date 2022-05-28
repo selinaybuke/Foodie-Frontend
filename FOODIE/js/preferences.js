@@ -22,8 +22,6 @@ app.controller('checkPreferencesController', ['$scope', function ($scope) {
         });
         var xhr = new XMLHttpRequest();
 
-
-
         xhr.addEventListener("readystatechange", function () {
             if (this.readyState === 4) {
                 console.log(this.responseText);
@@ -36,6 +34,7 @@ app.controller('checkPreferencesController', ['$scope', function ($scope) {
         xhr.send(data);
 
     };
+
     $scope.allergenChange = function () {
         var xhr = new XMLHttpRequest();
         //$scope.allergens.length = 0
@@ -57,51 +56,45 @@ app.controller('checkPreferencesController', ['$scope', function ($scope) {
     };
     $scope.allergyList = [];
 
- 
+
     $scope.allergy = function (item) {
         $scope.allergyList.push(item.name)
-        console.log($scope.allergyList)
-        
-
-
 
     };
- 
-    /*
-    $scope.saveAllergenList = function () { 
-        var dataList = [];
-        for (var i=0;i<$scope.allergyList.length;i++) {
-            var data = JSON.stringify(
+
+
+    $scope.saveAllergenList = function () {
+        var data = ""
+        for (var i = 0; i < $scope.allergyList.length; i++) {
+            var temp = $scope.allergyList[i];
+
+            data += JSON.stringify(
                 {
-                  "name": $scope.allergyList[i],
-                  "spoonId": 32,
-                  "user": {
-                    "id": localStorage.getItem("userId")
-                  }
+                    "name": temp,
+                    "spoonId": 32,
+                    "user": {
+                        "id": localStorage.getItem("userId")
+                    }
                 }
-              );
-              dataList.push(data)
-
-
+            );
+            data += ","
 
         }
-        
+        data = data.slice(0, -1)
+        data = "[" + data + "]";
+        var xhr = new XMLHttpRequest();
 
-     
-          
-          var xhr = new XMLHttpRequest();
-          
-          xhr.addEventListener("readystatechange", function() {
-            if(this.readyState === 4) {
-              console.log(this.responseText);
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === 4) {
+                console.log(this.responseText);
             }
-          });
-          
-          xhr.open("POST", "http://localhost:8080/api/allergen/save");
-          xhr.setRequestHeader("Content-Type", "application/json");
-          xhr.send(data)
+        });
+
+        xhr.open("POST", "http://localhost:8080/api/allergen/save");
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send(data)
 
     }
-    */
+
 
 }]);
