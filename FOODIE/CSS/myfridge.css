@@ -1,11 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Playfair+Display&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Karla&family=Poppins:wght@500&family=Russo+One&family=Shadows+Into+Light&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Karla&family=Poppins:wght@500&family=Russo+One&family=Shadows+Into+Light&display=swap');
 
-html{
-    position: relative;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Karla&family=Poppins:wght@500&family=Russo+One&family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla&family=Poppins:wght@500&family=Russo+One&family=Shadows+Into+Light&display=swap');
+
 body {
     margin: 0;
     padding: 0;
@@ -19,19 +16,11 @@ nav {
     height: 50px;
 }
 
-/* .head{
-    
-} */
 .nav-left {
     cursor: pointer;
     width: 120px;
     float: left;
 
-}
-
-.checkbox:checked {
-    background: red;
-    color: white;
 }
 
 main {
@@ -41,13 +30,7 @@ main {
     height: 630px;
     background-size: cover;
     background-position: center;
-    text-align: center;
 }
-
-/* .footerbacg {
-    /* border-top:1px solid #030303; }*/
-
-
 
 .footerlogo {
     width: 120px;
@@ -69,7 +52,7 @@ main {
     text-align: center;
     cursor: pointer;
     float: right;
-    margin-right: 2%;
+    margin-right: 1%;
     margin-top: 17px;
     padding-left: 15px;
     padding-right: 15px;
@@ -91,45 +74,12 @@ main {
     padding-right: 15px;
 }
 
-.check {
-    -webkit-appearance: none;
-    /*hides the default checkbox*/
-    height: 20px;
-    width: 20px;
-    transition: 0.10s;
-    background-color: #fff;
-    text-align: center;
-    font-weight: 600;
-    color: #FF4A4A;
-    border-radius: 3px;
-    outline: none;
-    border: 1px solid #fe9c9c;
 
-}
-.check:checked:before {
-    content: "✔";
-}
-
-.check:hover {
-    cursor: pointer;
-    border: 1px solid #a80000;
-}
-
-h2 {
+h1 { 
+    font-family: 'Shadows Into Light' !important;;
     position: relative;
-    letter-spacing: 3px;
-    font-family: 'Shadows Into Light' !important; 
-}
-
-#favourite {
-    border: 0;
-    font-size: 22px;
-    float: right;
-    margin-right: 1%;
-    margin-top: 17px;
-    padding-right: 15px;
-    background: none;
-    color: #030303;
+    width: 200px;
+    left: 42px;
 }
 
 #logout {
@@ -143,36 +93,202 @@ h2 {
     color: #030303;
 }
 
-.save {
+#favourite {
     position: relative;
+    border: 0;
+    font-size: 22px;
+    float: right;
+    margin-right: 1%;
+    margin-top: 17px;
+    padding-right: 15px;
+    background: none;
+    color: #030303;
+}
 
-    font-family: 'Inter';
-    font-size: 12px;
-    background-color: #030303;
-    color: #fff;
-    padding: 5px 30px 5px 30px;
-    font-weight: bold;
-    font-family: 'Inter', sans-serif;
-    letter-spacing: 1px;
-    /* display: table-cell;
-    vertical-align: middle; */
-    /* text-align: center; */
-    margin-top: 120px;
+#wrap {
+    position: absolute;
+    right: 370px;
+    /* float: right; */
+}
+
+input[type="text"] {
+    height: 50px;
+    color: #030303;
+    font-size: 15px;
+    width: 0px;
+    display: inline-block;
+    padding: 3px;
+    font-family: "Lato";
+    border: none;
+    outline: none;
+    z-index: 3;
+    padding-right: 60px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none;
+    transition: .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
     cursor: pointer;
 }
-form label{
-    margin-right: 30px;
-}
-#size{
+
+.cards1 {
+    background-color: rgba(255, 255, 255, 0.37);
+    border: 1px solid #030303;
+    width: 26vh;
     position: relative;
-    padding-right: 200px;
-    outline: none;
-    border: none;
-    text-align: center;
+    left: 10%;
+    top: 100px;
+    height: 170px;
+    box-shadow: 9px 2px 5px #03030341;
+
 }
-ul {
-    list-style-type: none;
-    padding-left: 0;
-    display: inline;
+
+.cards3 {
+    background-color: rgba(255, 255, 255, 0.37);
+    position: relative;
+    top: -69.5px;
+    border: 1px solid #030303;
+    width: 26vh;
+    margin-left: 50px;
+    margin-bottom: 50px;
+    height: 170px;
+    float: left;
+    box-shadow: 9px 2px 5px #03030341;
+    cursor:pointer;
+}
+
+.cards1 img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    opacity: 58%;
+}
+
+.cards p {
+    text-align: center;
+    font-family: 'Playfair Display';
+    color: #030303;
+    font-size: 14px;
+    margin-top: 30px;
+}
+
+.cards3 p {
+    position: relative;
+    top: 110px;
+}
+
+.cards1 p {
+    position: relative;
+    top: -10px;
+}
+
+input[type="text"]:focus:hover {
+    border-bottom: 1px solid #fc31b1;
+
+}
+
+input[type="text"]:focus {
+    z-index: 1;
+    width: auto;
+    border-bottom: 1px solid #fc31b1;
+    cursor: text;
+
+}
+
+button[type="submit"] {
+    height: 60px;
+    width: 90px;
+    display: inline-block;
+    color: #030303;
+    border: none;
     position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    cursor: pointer;
+    opacity: 0.7;
+    /* transition: opacity .4s ease; */
+    background: none;
+
+}
+
+button[type="submit"]:hover {
+    opacity: 0.8;
+
+}
+
+button[type="submit"]:focus {
+    outline: none;
+}
+
+
+#ticksign:hover,
+#cancelsign:hover {
+    font-size: 25px;
+}
+
+#fb {
+    width: 500px;
+    position: relative;
+    top: -70px;
+    margin: auto;
+    border: 1px solid gray;
+    border-radius: 40px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.37);
+    text-align: center;
+    
+}
+
+#fb p {
+    font-family: sans-serif;
+    line-height: 30px;
+    float: left;
+    width: auto;
+}
+
+#info {
+    position: relative;
+    left: 150px;
+    top: 17px;
+    color: #d665c7;
+    /* line-height: 25px; */
+    font-size: 18px;
+}
+
+
+#button-block {
+    position: relative;
+    right: 10px;
+    top: 2px;
+    width: auto;
+    margin-right: 0;
+    float: right;
+}
+
+
+#button-block div:hover {
+    opacity: .8;
+    cursor: pointer;
+}
+
+#ticksign {
+    position: relative;
+    color: #009a34;
+    cursor: pointer;
+    font-size: 20px;
+    opacity: 1;
+    width:50px;
+}
+
+#cancelsign {
+    position: relative;
+    color: #c00705;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 6px;
+    margin-right: 0;
+    opacity: 1;
+    width: 50px;
 }
