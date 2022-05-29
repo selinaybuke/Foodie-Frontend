@@ -74,7 +74,7 @@
         <h1>My Fridges</h1>
         <div class="cards" ng-controller="currentFridgeController" data-ng-init="init()">
             <div class="cards1">
-                <img src="../IMAGES/addsign.png" alt="adding" onClick="createFridge();" width="60px">
+                <img src="../IMAGES/addsign.png" alt="adding" ng-click="createFridge()" width="60px">
                 <p>Create new fridge</p>
             </div>
             <div class='md-padding' layout="row" layout-wrap>

@@ -2,7 +2,6 @@ var app = angular.module('myFridge', [])
 
 app.controller('currentFridgeController', ['$scope', function ($scope) {
     $scope.init = function () {
-        var data = "";
 
         var xhr = new XMLHttpRequest();
 
@@ -19,6 +18,10 @@ app.controller('currentFridgeController', ['$scope', function ($scope) {
         xhr.open("GET", "http://localhost:8080/api/fridge/getRelationByUserId?id=" + localStorage.getItem("userId"));
 
         xhr.send();
+    };
+
+    $scope.createFridge = function () {
+        window.location.href = 'http://127.0.0.1:5501/FOODIE/HTML/createFridge.html';
     };
 }]);
 
@@ -37,7 +40,7 @@ app.controller("acceptFridgeController", ["$scope", function ($scope) {
             }
         });
 
-        xhr.open("GET", "http://localhost:8080/api/fridge/getRelationFridgeRequestByStatus?id=1");
+        xhr.open("GET", "http://localhost:8080/api/fridge/getRelationFridgeRequestByStatus?id=" + localStorage.getItem("userId"));
 
         xhr.send();
     };
