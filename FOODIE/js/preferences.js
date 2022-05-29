@@ -94,6 +94,8 @@ app.controller('checkPreferencesController', ['$scope', function ($scope) {
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(data)
 
+        window.location.href = 'http://127.0.0.1:5501/FOODIE/HTML/myfridge.html';
+
     }
 
 
