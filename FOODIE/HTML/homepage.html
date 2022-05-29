@@ -15,16 +15,20 @@
             <img src="../IMAGES/logo.png" alt="logo" class="nav-left" >
         </a>
         <div class="navi-right">
-            <button type="button" onClick="parent.location='login.html'" class="login">LOG IN</button>
-            <button type="button" onClick="parent.location='register.html'" class="register">REGISTER</button>
+            <button type="button" onClick="parent.location='/HTML/login.html'" class="login">LOG IN</button>
+            <button type="button" onClick="parent.location='/HTML/register.html'" class="register">REGISTER</button>
         </div>
     </nav>
     <main>
-        <div class="allbackground">
-            <div class="background">
-                <p class="foinfo">ABOUT FOODIE</p>
-                <img src="../IMAGES/karışık.png" alt="food" width="450" class="backfood">
-                <button type="button" value="Register" onClick="parent.location='register.html'" class="tryfood">TRY FOODIE</button>
+        <div class="background">
+            <div id="gradient">
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+            </div>
+            <img src="../IMAGES/karışık.png" alt="food" width="450" class="backfood">
+            <p class="foinfo">ABOUT FOODIE</p>
+            <div style="text-align: center;">
+                <button type="button" value="Register" onClick="/HTML/register.html" class="tryfood">TRY
+                    FOODIE</button>
             </div>
         </div>
 
@@ -45,9 +49,9 @@
                 </div>
             </div>
         </div>
-        <p class="mainparag">
-            Foodie includes tips, recipes, and it's taking the hassle away!
-        </p>
+        <div style="text-align:center;">
+            <p class="pgradient">Foodie includes tips, recipes, and it's taking the hassle away!</p>
+        </div>
         <div class="space"></div>
     </main>
     <footer>
