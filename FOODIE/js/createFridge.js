@@ -17,7 +17,7 @@ app.controller('createFridgeController', ['$scope', function ($scope) {
                 console.log(this.responseText);
                 const response = JSON.parse(this.response)
                 localStorage.setItem("fridgeId",response.id)
-                window.location.href = 'http://127.0.0.1:5501/FOODIE/HTML/fridgeDetail.html';
+                window.location.href = 'http://127.0.0.1:5501/FOODIE/HTML/createFridgeDetail.html';
             }
         });
 

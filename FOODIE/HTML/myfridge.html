@@ -55,10 +55,9 @@
         <div class="navi-right">
             <button type="button" class="fa-solid fa-right-from-bracket" aria-hidden="true"
                 onClick="parent.location='homepage.html'" id="logout"></button>
-            <button type="button" class="fa fa-heart" aria-hidden="true"
-                onClick="parent.location='favourite.html'" id="favourite"></button>
-            <button type="button" onClick="parent.location='preferences.html'"
-                class="preferences">PREFERENCES</button>
+            <button type="button" class="fa fa-heart" aria-hidden="true" onClick="parent.location='favourite.html'"
+                id="favourite"></button>
+            <button type="button" onClick="parent.location='preferences.html'" class="preferences">PREFERENCES</button>
             <button type="button" onClick="parent.location='myFridge.html'" class="homepage">HOME</button>
             <div id="wrap">
                 <form action="" autocomplete="off">
@@ -81,7 +80,8 @@
                 <div style="margin-left: 150px; ">
                     <div class="fridgecards" id="fridgecards">
                         <a>
-                            <div class="cards3" ng-repeat="item in fridges">
+                            <div class="cards3" ng-repeat="item in fridges" ng-hide="!fridges.length"
+                                ng-click="getFridge(item.fridge.id)">
                                 <p>{{item.fridge.name}}</p>
                             </div>
                         </a>
@@ -95,12 +95,17 @@
         <hr
             style="position:relative; top: -70px; height:2px; opacity:46%; border-width:0; width:80%;color:black; background-color:black;">
         <div ng-controller="acceptFridgeController" data-ng-init="init()">
-            <div id="fb" ng-repeat="item in fridgeRequests">
-                <p id="info"> <b>Name: {{item.fridge.name}}</b> </p>
+            <div id="fb" ng-repeat="item in fridgeRequests" ng-hide="!fridgeRequests.length">
+
+                <p id="info"> <b>Name: {{item.fridge.name}}</b></p>
                 <div id="button-block">
-                    <button id="ticksign" value="tick" type="submit" class="fa-solid fa-check"></button>
-                    <button id="cancelsign" value="cancel" type="submit" class="fa-solid fa-xmark"></button>
+                    <button id="ticksign" value="tick" type="submit" class="fa-solid fa-check"
+                        ng-click="acceptFridge(item.id)"></button>
+                    <button id="cancelsign" value="cancel" type="submit" class="fa-solid fa-xmark"
+                        ng-click="deleteFridge(item.id)"></button>
+
                 </div>
+
             </div>
         </div>
     </main>
