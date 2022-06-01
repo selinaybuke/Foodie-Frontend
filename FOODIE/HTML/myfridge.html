@@ -91,16 +91,10 @@
         </div>
         <hr
             style="position:relative; top: -70px; height:2px; opacity:46%; border-width:0; width:80%;color:black; background-color:black;">
-<<<<<<< HEAD
         <div ng-controller="acceptFridgeController" data-ng-init="init()">
             <div id="fb" ng-repeat="item in fridgeRequests" ng-hide="!fridgeRequests.length">
 
                 <p id="info"> <b>Name: {{item.fridge.name}}</b></p>
-=======
-        <div ng-controller="acceptFridgeController" data-ng-init="init()"  style="width: 100%; text-align:center;">
-            <div id="fb" ng-repeat="item in fridgeRequests">
-                <p id="info"> <b>Name: {{item.fridge.name}}</b> </p>
->>>>>>> 07fa5006212e28fa7d2e94edb778776b7eaf099c
                 <div id="button-block">
                     <button id="ticksign" value="tick" type="submit" class="fa-solid fa-check"
                         ng-click="acceptFridge(item.id)"></button>
