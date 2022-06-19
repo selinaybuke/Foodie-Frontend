@@ -20,6 +20,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link data-require="bootstrap-css@*" data-semver="3.3.6" rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.1.2.js"></script>
+    <script data-require="angular-route@*" data-semver="1.4.8"
+        src="https://code.angularjs.org/1.4.8/angular-route.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
     <script src="../js/createFridgeDetail.js"></script>
     <style>
         table label {
@@ -46,56 +58,20 @@
     <main ng-app="fridgeDetail">
         <div class="row" ng-controller="fridgeInitController" data-ng-init="init()" style="width: 100%; height: 100%;">
             <div class="col-sm-6" style="height: 100%;">
-                <h1>{{fridgeName[0].fridge.name}} <button type="button" class="fa fa-user-plus"
-                        aria-hidden="true" id="fridgeName" onClick="parent.location='createfriendsname.html'"></button></h1>
+                <h1>{{fridgeName[0].fridge.name}} <button type="button" class="fa fa-user-plus" aria-hidden="true"
+                        id="fridgeName" onClick="parent.location='createfriendsname.html'"></button></h1>
                 <br><br>
                 <div class="row" style="height : 1%;">
                     <form>
                         <div class="col-sm-2"></div>
-                        <div class="col-sm-1">
-                            <input type="text" id="category" list="categories" placeholder="Categories"
-                                style=" margin-left:50%; width: 100px; height: 30px; background-color: rgba(255, 255, 255, 0.37);"
-                                required>
-                            <datalist id="categories">
-                                <option value="a">
-                                <option value="bb">
-                                <option value="ab">
-                                <option value="bc">
-                                <option value="ad">
-                                <option value="be">
-                            </datalist>
-                        </div>
-                        <div class="col-sm-1"></div>
-                        <div class="col-sm-1">
-                            <input type="text" id="product" list="products" placeholder="Products"
-                                style=" margin-left:50%; width: 100px; height: 30px; background-color: rgba(255, 255, 255, 0.37);"
-                                required>
-                            <datalist id="products">
-                                <option value="a">
-                                <option value="bab">
-                                <option value="aas">
-                                <option value="babc">
-                                <option value="aaasd">
-                                <option value="bbb">
-                                <option value="a">
-                                <option value="bab">
-                                <option value="aas">
-                                <option value="babc">
-                                <option value="aaasd">
-                                <option value="bbb">
-                                <option value="a">
-                                <option value="bab">
-                                <option value="aas">
-                                <option value="babc">
-                                <option value="aaasd">
-                                <option value="bbb">
-                                <option value="a">
-                                <option value="bab">
-                                <option value="aas">
-                                <option value="babc">
-                                <option value="aaasd">
-                                <option value="bbb">
-                            </datalist>
+                        <div class="col-sm-6" ng-controller="ingredientController">
+
+                            <input type="text" ng-change="getIngredient()" ng-model="ingredient.name"
+                                typeahead-on-select="selectTypeAhead($item)"
+                                uib-typeahead="ingredient.name for ingredient in ingredients"
+                                typeahead-loading="loading" typeahead-no-results="noResults"
+                                class="form-control input-sm" autocomplete="off"
+                                style=" margin-left:20%; width: 100px; height: 30px; background-color: rgba(255, 255, 255, 0.37);">
                         </div>
                         <div class="col-sm-1"></div>
                         <div class="col-sm-2">
