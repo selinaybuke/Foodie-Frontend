@@ -9,6 +9,11 @@ app.controller('checkPreferencesController', ['$scope', function ($scope) {
 
     };
 
+    $scope.go = function() {
+        console.log("HAlil")
+        window.location.href = 'http://127.0.0.1:5501/FOODIE/HTML/myfridge.html';
+};
+
     $scope.savePreferences = function () {
         var data = JSON.stringify({
             "vegetarian": $scope.preferences.Vegetarian,
@@ -59,12 +64,14 @@ app.controller('checkPreferencesController', ['$scope', function ($scope) {
 
     $scope.allergy = function (item) {
         $scope.allergyList.push(item.name)
+        console.log(item.name);
 
     };
 
 
     $scope.saveAllergenList = function () {
         var data = ""
+        console.log("halil");
         for (var i = 0; i < $scope.allergyList.length; i++) {
             var temp = $scope.allergyList[i];
 

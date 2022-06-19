@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Karla&family=Poppins:wght@500&family=Russo+One&family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla&family=Poppins:wght@500&family=Russo+One&family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Karla&family=Poppins:wght@500&family=Russo+One&family=Shadows+Into+Light&family=Shadows+Into+Light+Two&display=swap');
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: calc(100% - 40px);
+}
+
+nav {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 50px;
+}
+
+footer {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 50px;
+    max-height: 100px;
+}
+
+.nav-left {
+    cursor: pointer;
+    width: 120px;
+    float: left;
+
+}
+
+main {
+    position: relative;
+    border-top: 1px solid #030303;
+    background-image: url('../IMAGES/backg2.png');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 90%;
+    background-size: cover;
+    background-position: center;
+}
+
+.footerlogo {
+    position: relative;
+    width: 120px;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+
+}
+
+h1 {
+    font-family: 'Shadows Into Light' !important;
+    width: 100%;
+    height: 6%;
+    }
+
+.homepage {
+    background-color: #030303;
+    color: #fff;
+    letter-spacing: 1px;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    cursor: pointer;
+    float: right;
+    margin-right: 1%;
+    margin-top: 17px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.preferences {
+    background-color: #030303;
+    color: #fff;
+    letter-spacing: 1px;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    cursor: pointer;
+    float: right;
+    margin-right: 1%;
+    margin-top: 17px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#logout {
+    border: 0;
+    font-size: 22px;
+    float: right;
+    margin-right: 1%;
+    margin-top: 17px;
+    padding-right: 15px;
+    background: none;
+    color: #030303;
+}
+
+#favourite {
+    position: relative;
+    border: 0;
+    font-size: 22px;
+    float: right;
+    margin-right: 1%;
+    margin-top: 17px;
+    padding-right: 15px;
+    background: none;
+    color: #030303;
+}
+
+#container{
+    position: relative;
+    border: 1px solid gray;
+    border-radius: 40px;
+    background-color: rgba(255, 255, 255, 0.37);
+}
+
+#name {
+    position: relative;
+    line-height: 50px;
+    font-size: 20px;
+    width: 100%;
+    margin-bottom: 0px;
+    text-align: center;
+    margin-top: 1%;
+}
+
+#ticksign {
+    border: none;
+    background: none;
+    position: relative;
+    cursor: pointer;
+    font-size: 20px;
+    opacity: 1;
+    width: 50px;
+}

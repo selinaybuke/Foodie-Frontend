@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Details</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"
+        integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../CSS/mealDetails.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script src="../js/fridgeDetail.js"></script>
+</head>
+<nav class="head">
+    <a href="../HTML/homepage.html">
+        <img src="../IMAGES/logo.png" alt="logo" class="nav-left">
+    </a>
+    <div class="navi-right">
+        <button type="button" class="fa-solid fa-right-from-bracket" aria-hidden="true"
+            onClick="parent.location='homepage.html'" id="logout"></button>
+        <button type="button" class="fa fa-heart" aria-hidden="true" onClick="parent.location='favourite.html'"
+            id="favourite"></button>
+        <button type="button" onClick="parent.location='preferences.html'" class="preferences">PREFERENCES</button>
+        <button type="button" onClick="parent.location='myFridge.html'" class="homepage">HOME</button>
+
+    </div>
+</nav>
+
+<body>
+    <main ng-app="fridgeDetail">
+        <div class="row"
+            style="position:relative; height: 90%; width: 90%; font-family: 'Courier New', monospace !important; margin-top: 2%;">
+            <div class="col-sm-3" style="padding:0px;"></div>
+            <div class="col-sm-7" id="container">
+                <div>
+                    <label id="name">Pasta with Garlic, Scallions, Caulifower & Breadcrumbs</label>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-6" style="font-weight: 100; width: 50%; height: 100%;">
+                        <br>
+                        <label for="">Pasta</label><br>
+                        <label for="">Butter</label><br>
+                        <label for="">Cheese</label><br>
+                        <label for="">...</label><br>
+                    </div>
+                    <div class="col-sm-5">
+                        <img src="../IMAGES/backg.jpg" alt="" style="width: 90%;">
+                    </div>
+                </div>
+                <div>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+<footer>
+    <img src="../IMAGES/logo.png" alt="logo" class="footerlogo" opacity: 100%;>
+</footer>
+
+</html>

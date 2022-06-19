@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Karla&family=Poppins:wght@500&family=Russo+One&family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla&family=Poppins:wght@500&family=Russo+One&family=Shadows+Into+Light&display=swap');
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: calc(100% - 40px);
+}
+
+nav {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 50px;
+}
+
+footer {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 50px;
+    max-height: 100px;
+}
+
+.nav-left {
+    cursor: pointer;
+    width: 120px;
+    float: left;
+
+}
+
+main {
+    position: relative;
+    border-top: 1px solid #030303;
+    background-image: url('../IMAGES/backg2.png');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 90%;
+    background-size: cover;
+    background-position: center;
+}
+
+.footerlogo {
+    position: relative;
+    width: 120px;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+
+}
+
+h1 {
+    font-family: 'Shadows Into Light' !important;
+    position: relative;
+    width: 200px;
+    left: 42px;
+}
+
+.homepage {
+    background-color: #030303;
+    color: #fff;
+    letter-spacing: 1px;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    cursor: pointer;
+    float: right;
+    margin-right: 1%;
+    margin-top: 17px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.preferences {
+    background-color: #030303;
+    color: #fff;
+    letter-spacing: 1px;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    cursor: pointer;
+    float: right;
+    margin-right: 1%;
+    margin-top: 17px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#logout {
+    border: 0;
+    font-size: 22px;
+    float: right;
+    margin-right: 1%;
+    margin-top: 17px;
+    padding-right: 15px;
+    background: none;
+    color: #030303;
+}
+
+#fridgeName {
+    background: none;
+    border: 0;
+    font-size: 28px;
+    
+}
+
+#favourite {
+    position: relative;
+    border: 0;
+    font-size: 22px;
+    float: right;
+    margin-right: 1%;
+    margin-top: 17px;
+    padding-right: 15px;
+    background: none;
+    color: #030303;
+}
+
+
+.save {
+    font-family: 'Inter';
+    font-size: 12px;
+    background-color: #030303;
+    color: #fff;
+    padding: 5px 30px 5px 30px;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.items {
+    border: 2px solid black;
+    height: 38px;
+    position: relative;
+    left: 15%;
+    background-color: rgba(255, 255, 255, 0.37)
+}
+
+input[type=checkbox] {
+    -webkit-appearance: none;
+    /*hides the default checkbox*/
+    height: 13px;
+    width: 13px;
+    transition: 0.10s;
+    background-color: #fff;
+    text-align: center;
+    font-weight: 600;
+    color: #fff;
+    border-radius: 3px;
+    outline: none;
+    border: 1px solid #fe9c9c;
+
+}
+
+input[type=checkbox]:before {
+    position: relative;
+    font-size: 10px;
+    top: -3.7px;
+    content: "✔";
+}
+
+input[type=checkbox]:hover {
+    cursor: pointer;
+    border: 1px solid #a80000;
+}
+
+input[type=checkbox]:checked {
+    background: none;
+    color: #FF4A4A;
+}
+
+form label {
+    position: relative;
+    top: -4px;
+}

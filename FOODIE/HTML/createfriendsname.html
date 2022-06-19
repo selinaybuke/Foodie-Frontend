@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Fridge</title>
+    <link data-require="bootstrap-css@*" data-semver="3.3.6" rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.1.2.js"></script>
+    <script data-require="angular-route@*" data-semver="1.4.8"
+        src="https://code.angularjs.org/1.4.8/angular-route.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <link rel="stylesheet" href="../CSS/createfriendsname.css">
+    <script src="../js/createFriend.js"></script>
+
+</head>
+<nav class="head">
+    <a href="../HTML/homepage.html">
+        <img src="../IMAGES/logo.png" alt="logo" class="nav-left">
+    </a>
+    <div class="navi-right">
+        <button type="button" class="fa-solid fa-right-from-bracket" aria-hidden="true"
+            onClick="parent.location='homepage.html'" id="logout"></button>
+        <button type="button" class="fa fa-heart" aria-hidden="true" onClick="parent.location='favourite.html'"
+            id="favourite"></button>
+        <button type="button" onClick="parent.location='preferences.html'" class="preferences">PREFERENCES</button>
+        <button type="button" onClick="parent.location='myFridge.html'" class="homepage">HOME</button>
+        <div id="wrap">
+            <form action="" autocomplete="off">
+                <input id="search" name="search" type="text" placeholder="What're we looking for ?">
+
+                <button id="search_submit" value="Rechercher" type="submit" class="fa fa-search"></button>
+            </form>
+        </div>
+
+    </div>
+</nav>
+
+<body>
+    <main ng-app="friendApp">
+        <div ng-controller="friendController" style="text-align: center;">
+            <img src="../IMAGES/question.png" alt="logo" class="question" width="266px">
+            <h1 style="margin-top: 0px;">What is your friends name?</h1>
+            <br>
+            <br>
+
+            <div id="fb">
+                <input type="text" ng-change="getFriends()" ng-model="friend.username"
+                    typeahead-on-select="selectTypeAhead($item)" uib-typeahead="friend.username for friend in friends"
+                    typeahead-loading="loading" typeahead-no-results="noResults" class="form-control input-sm"
+                    autocomplete="off">
+                <i ng-show="loading" class="glyphicon glyphicon-refresh"></i>
+                <div ng-show="noResults">
+                    <i class="glyphicon glyphicon-remove"></i> No Results Found
+                </div>
+                <p>&nbsp;</p>
+
+                <br>
+                <br>
+                <br>
+                <div>Username: {{friend.username}}</div>
+
+                <div style="text-align: center; ">
+                    <button ng-click="saveFriend()" type="button" value="save" class="save">SAVE</button>
+                </div>
+
+
+            </div>
+            <br>
+
+        </div>
+    </main>
+
+</body>
+<footer>
+    <div class="footerbacg"></div>
+    <img src="../IMAGES/logo.png" alt="logo" class="footerlogo" opacity: 100%;>
+</footer>
+
+</html>

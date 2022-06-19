@@ -11,7 +11,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../CSS/myfridge.css">
+    <link rel="stylesheet" href="../CSS/createFridgeDetail.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
@@ -20,34 +20,231 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
-    <script src="../js/fridgeDetail.js"></script>
+    <script src="../js/createFridgeDetail.js"></script>
+    <style>
+        table label {
+            font-weight: lighter;
+        }
+    </style>
 </head>
-
-<body>
-    <nav class="head">
-        <a href="../HTML/homepage.html">
-            <img src="../IMAGES/logo.png" alt="logo" class="nav-left">
-        </a>
-        <div class="navi-right">
-            <button type="button" class="fa-solid fa-right-from-bracket" aria-hidden="true"
-                onClick="parent.location='homepage.html'" id="logout"></button>
-            <button type="button" class="fa fa-heart" aria-hidden="true" onClick="parent.location='favourite.html'"
-                id="favourite"></button>
-            <button type="button" onClick="parent.location='preferences.html'" class="preferences">PREFERENCES</button>
-            <button type="button" onClick="parent.location='myFridge.html'" class="homepage">HOME</button>
-            <div id="wrap">
-                <form action="" autocomplete="off">
-                    <input id="search" name="search" type="text" placeholder="What're we looking for ?">
-                    <!-- <button id="search_submit" value="Rechercher" type="submit"   > </button> -->
-                    <button id="search_submit" value="Rechercher" type="submit" class="fa fa-search"></button>
-                </form>
-            </div>
-
-        </div>
-    </nav>
+<nav class="head">
+    <a href="../HTML/homepage.html">
+        <img src="../IMAGES/logo.png" alt="logo" class="nav-left">
+    </a>
+    <div class="navi-right">
+        <button type="button" class="fa-solid fa-right-from-bracket" aria-hidden="true"
+            onClick="parent.location='homepage.html'" id="logout"></button>
+        <button type="button" class="fa fa-heart" aria-hidden="true" onClick="parent.location='favourite.html'"
+            id="favourite"></button>
+        <button type="button" onClick="parent.location='preferences.html'" class="preferences">PREFERENCES</button>
+        <button type="button" onClick="parent.location='myFridge.html'" class="homepage">HOME</button>
 
     </div>
-    fridgeDetail
+</nav>
+
+<body>
+    <main ng-app="fridgeDetail">
+        <div class="row" ng-controller="fridgeInitController" data-ng-init="init()" style="width: 100%; height: 100%;">
+            <div class="col-sm-6" style="height: 100%;">
+                <h1>{{fridgeName[0].fridge.name}} <button type="button" class="fa fa-user-plus"
+                        aria-hidden="true" id="fridgeName" onClick="parent.location='createfriendsname.html'"></button></h1>
+                <br><br>
+                <div class="row" style="height : 1%;">
+                    <form>
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-1">
+                            <input type="text" id="category" list="categories" placeholder="Categories"
+                                style=" margin-left:50%; width: 100px; height: 30px; background-color: rgba(255, 255, 255, 0.37);"
+                                required>
+                            <datalist id="categories">
+                                <option value="a">
+                                <option value="bb">
+                                <option value="ab">
+                                <option value="bc">
+                                <option value="ad">
+                                <option value="be">
+                            </datalist>
+                        </div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-1">
+                            <input type="text" id="product" list="products" placeholder="Products"
+                                style=" margin-left:50%; width: 100px; height: 30px; background-color: rgba(255, 255, 255, 0.37);"
+                                required>
+                            <datalist id="products">
+                                <option value="a">
+                                <option value="bab">
+                                <option value="aas">
+                                <option value="babc">
+                                <option value="aaasd">
+                                <option value="bbb">
+                                <option value="a">
+                                <option value="bab">
+                                <option value="aas">
+                                <option value="babc">
+                                <option value="aaasd">
+                                <option value="bbb">
+                                <option value="a">
+                                <option value="bab">
+                                <option value="aas">
+                                <option value="babc">
+                                <option value="aaasd">
+                                <option value="bbb">
+                                <option value="a">
+                                <option value="bab">
+                                <option value="aas">
+                                <option value="babc">
+                                <option value="aaasd">
+                                <option value="bbb">
+                            </datalist>
+                        </div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-2">
+                            <input type="text" id="kgpi" list="kg/piece" placeholder="Kg / Piece"
+                                style=" margin-left:20%; width: 100px; height: 30px; background-color: rgba(255, 255, 255, 0.37);"
+                                required>
+                            <datalist id="kg/piece">
+                                <option value="Kg">
+                                <option value="Piece">
+                            </datalist>
+                        </div>
+                        <div class="col-sm-1">
+                            <input type="number" id="adet" min=1
+                                style=" margin-left:50%; width: 60px; height: 30px; background-color: rgba(255, 255, 255, 0.37);"
+                                required>
+                        </div>
+                        <div class="col-sm-1">
+                            <button type="submit" style="border: 0px; background: 0px;" onclick="add();"><img
+                                    src=" ../IMAGES/addsign.png" alt="adding"
+                                    style=" margin-left:80%; width: 20px; opacity:70%;"></button>
+                        </div>
+                    </form>
+                </div>
+                <br><br><br><br>
+
+                <div id="added"
+                    style="overflow-y: scroll; overflow-x: hidden; width: 100%; height: 50%; max-height: 50%; ">
+                    <div class="row align-items-center" style="text-align:center;">
+                        <div class="col-sm-1"></div>
+                        <div class="items row col-sm-7 align-items-center">
+                            Apple 1 kg
+                        </div>
+                        <div class="col">
+                            <a href="#"><img src="../IMAGES/xmark-solid.svg" alt="adding"
+                                    style="width: 15px; opacity:70%;"></a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row align-items-center" style="text-align:center;">
+                        <div class="col-sm-1"></div>
+                        <div class="items row col-sm-7 align-items-center">
+                            Apple 1 kg
+                        </div>
+                        <div class="col">
+                            <a onclick="remove();" style="cursor: pointer;"><img src="../IMAGES/xmark-solid.svg"
+                                    alt="adding" style="width: 15px;  opacity:70%;"></a>
+                        </div>
+                    </div><br>
+
+                </div>
+                <div style="text-align: center;">
+                    <input type="submit" class="save" ng-click="" value="SAVE" required>
+                </div>
+            </div>
+            <!-- ---------------------------------------------------------------------------------------------------------------------------------------------- -->
+            <!-- ---------------------------------------------------------------------------------------------------------------------------------------------- -->
+            <div class="col-sm-5" style="border-left: 1px solid black;">
+                <br><br>
+                <div class="row" style="text-align: center;">
+                    <h1>Ingredients</h1>
+                </div>
+                <br>
+                <div class="row" style="height: 60%;">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-8"
+                        style="background-color: rgba(255, 255, 255, 0.37);  overflow-y: scroll; overflow-x: hidden; padding: 0px; height: 100%; max-height: 426px; border: 1px solid black;">
+                        <table style="max-height: 426px; width: 100%;">
+                            <tr style=" border-bottom: 1pt solid black;">
+                                <td style="text-align: center; border-right: 1pt solid black; width: 50%; ">
+                                    <input type="checkbox">
+                                    <label>aaaaaaaaa</label>
+                                </td>
+                                <td style="text-align: center; width: 50%;">
+                                    <label>b</label>
+                                </td>
+                            </tr>
+                            <tr style=" border-bottom: 1pt solid black;">
+                                <td style="text-align: center; border-right: 1pt solid black; width: 50%;">
+                                    <input type="checkbox">
+                                    <label>aaaaaaaaa</label>
+                                </td>
+                                <td style="text-align: center; width: 50%;">
+                                    <label>b</label>
+                                </td>
+                            </tr>
+                            <tr style=" border-bottom: 1pt solid black;">
+                                <td style="text-align: center; border-right: 1pt solid black; width: 50%;">
+                                    <input type="checkbox">
+                                    <label>aaaaaaaaa aaaaaaaaa</label>
+                                </td>
+                                <td style="text-align: center; width: 50%;">
+                                    <label>b</label>
+                                </td>
+                            </tr>
+                            <tr style=" border-bottom: 1pt solid black;">
+                                <td style="text-align: center; border-right: 1pt solid black; width: 50%;">
+                                    <input type="checkbox">
+                                    <label>aaaaaaaaa aaaaaaaaa</label>
+                                </td>
+                                <td style="text-align: center; width: 50%;">
+                                    <label>b</label>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div>
+                    <div class="col-sm-1"></div>
+                </div>
+                <br><br>
+                <div class="row">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-3">
+                        <input type="submit" class="save" ng-click="" value="LUCKY MEAL">
+                    </div>
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-3">
+                        <input type="submit" class="save" ng-click="" value="MEAL LIST">
+                    </div>
+                    <div class="col-sm-1"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script>
+        var i = 1;
+        function add() {
+            var product = document.getElementById("product").value;
+            var adet = document.getElementById("adet").value;
+            var kgpi = document.getElementById("kgpi").value;
+            if (product != "" && adet != '') {
+                document.getElementById("added").innerHTML +=
+                    "<div class='row align-items-center' id= 'div" + i + "' style='text-align: center;'>" +
+                    "<div class='col-sm-1'></div>" +
+                    "<div class='items row col-sm-7 align-items-center'>" +
+                    product + " " + adet + " " + kgpi + "</div>" + "<div class='col'>" + "<a onclick='remove(" + i + ");' style='cursor: pointer;'>" +
+                    "<img src='../IMAGES/xmark-solid.svg' alt='adding' style='width: 15px; opacity: 70%;'></a>" + "</div>" + "</div><br>";
+                i++;
+            }
+        }
+        function remove(id) {
+            document.getElementById("div" + id).innerHTML = "";
+        }
+    </script>
 </body>
+<footer>
+    <img src="../IMAGES/logo.png" alt="logo" class="footerlogo">
+</footer>
 
 </html>
