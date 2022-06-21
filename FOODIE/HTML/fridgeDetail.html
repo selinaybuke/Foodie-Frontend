@@ -62,9 +62,9 @@
                         id="fridgeName" onClick="parent.location='createfriendsname.html'"></button></h1>
                 <br><br>
                 <div class="row" style="height : 1%;">
-                    <form>
+                    <form ng-controller="ingredientController">
                         <div class="col-sm-2"></div>
-                        <div class="col-sm-6" ng-controller="ingredientController">
+                        <div class="col-sm-6">
 
                             <input type="text" ng-change="getIngredient()" ng-model="ingredient.name"
                                 typeahead-on-select="selectTypeAhead($item)"
@@ -79,8 +79,8 @@
                                 style=" margin-left:20%; width: 100px; height: 30px; background-color: rgba(255, 255, 255, 0.37);"
                                 required>
                             <datalist id="kg/piece">
-                                <option value="Kg">
-                                <option value="Piece">
+                                <option ng-repeat="unit in ingredientUnits.possibleUnits"
+                                    hidden="!ingredientUnits.possibleUnits" value="{{unit}}">
                             </datalist>
                         </div>
                         <div class="col-sm-1">
@@ -88,43 +88,38 @@
                                 style=" margin-left:50%; width: 60px; height: 30px; background-color: rgba(255, 255, 255, 0.37);"
                                 required>
                         </div>
-                        <div class="col-sm-1" ng-controller="addIngredientController">
+                        <div class="col-sm-1">
                             <button type="submit" style="border: 0px; background: 0px;" ng-click="addIngredient()"><img
                                     src=" ../IMAGES/addsign.png" alt="adding"
                                     style=" margin-left:80%; width: 20px; opacity:70%;"></button>
+                        </div>
+                        <p></p>
+                        <div id="added"
+                            style="overflow-y: scroll; overflow-x: hidden; width: 100%; height: 50%; max-height: 50%; ">
+                            <div class="row align-items-center" style="text-align:center;">
+                                <div class="col-sm-1"></div>
+                                <div ng-repeat="item in tempIngredientList" ng-hide="!tempIngredientList.length">
+                                    <div class="items row col-sm-7 align-items-center">
+                                        {{item}}
+                                    </div>
+                                    <br>
+                                    <div class="col">
+                                        <a href="#"><img src="../IMAGES/xmark-solid.svg" alt="adding"
+                                                style="width: 15px; opacity:70%;"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                        <div style="text-align: center;">
+                            <input type="submit" class="save" ng-click="" ng-hide="!tempIngredientList.length"
+                                value="SAVE" required>
                         </div>
                     </form>
                 </div>
                 <br><br><br><br>
 
-                <div id="added"
-                    style="overflow-y: scroll; overflow-x: hidden; width: 100%; height: 50%; max-height: 50%; ">
-                    <div class="row align-items-center" style="text-align:center;">
-                        <div class="col-sm-1"></div>
-                        <div class="items row col-sm-7 align-items-center">
-                            Apple 1 kg
-                        </div>
-                        <div class="col">
-                            <a href="#"><img src="../IMAGES/xmark-solid.svg" alt="adding"
-                                    style="width: 15px; opacity:70%;"></a>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row align-items-center" style="text-align:center;">
-                        <div class="col-sm-1"></div>
-                        <div class="items row col-sm-7 align-items-center">
-                            Apple 1 kg
-                        </div>
-                        <div class="col">
-                            <a onclick="remove();" style="cursor: pointer;"><img src="../IMAGES/xmark-solid.svg"
-                                    alt="adding" style="width: 15px;  opacity:70%;"></a>
-                        </div>
-                    </div><br>
 
-                </div>
-                <div style="text-align: center;">
-                    <input type="submit" class="save" ng-click="" value="SAVE" required>
-                </div>
             </div>
             <!-- ---------------------------------------------------------------------------------------------------------------------------------------------- -->
             <!-- ---------------------------------------------------------------------------------------------------------------------------------------------- -->

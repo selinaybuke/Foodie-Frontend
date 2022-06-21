@@ -27,7 +27,7 @@ app.controller('ingredientController', function ($scope) {
 
         xhr.addEventListener("readystatechange", function () {
             if (this.readyState === 4) {
-                console.log(this.responseText);
+                // console.log(this.responseText);
                 const response = JSON.parse(this.response)
                 $scope.ingredients = response;
                 $scope.$apply();
@@ -37,24 +37,52 @@ app.controller('ingredientController', function ($scope) {
         xhr.open("GET", "https://api.spoonacular.com/food/ingredients/autocomplete?query=" + $scope.ingredient.name + "&apiKey=c41e117a8ec343168d08c412fd210144");
 
         xhr.send();
+
+
     }
     $scope.selectTypeAhead = function ($item) {
-
+        document.getElementById("kg/piece").innerHTML = "";
         $scope.ingredient.name = $item.name;
+        var xhr = new XMLHttpRequest();
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === 4) {
+                const response = JSON.parse(this.response)
+                $scope.ingredientsDetail = response;
+                console.log($scope.ingredientsDetail.results[0].id);
+                $scope.$apply();
 
-        console.log($scope.ingredient.name);
-        console.log($scope.fridgeName);
+                var xhr = new XMLHttpRequest();
+
+                xhr.addEventListener("readystatechange", function () {
+                    if (this.readyState === 4) {
+                        console.log(this.responseText);
+                        const response = JSON.parse(this.response)
+                        $scope.ingredientUnits = response;
+                        console.log($scope.ingredientUnits.possibleUnits);
+                        console.log($scope.ingredientUnits);
+                        $scope.$apply();
+                    }
+                });
+
+                xhr.open("GET", "https://api.spoonacular.com/food/ingredients/" + $scope.ingredientsDetail.results[0].id + "/information?apiKey=c41e117a8ec343168d08c412fd210144");
+
+                xhr.send();
+            }
+        });
+
+        xhr.open("GET", "https://api.spoonacular.com/food/ingredients/search?query=" + $scope.ingredient.name + "&apiKey=c41e117a8ec343168d08c412fd210144");
+        xhr.send();
 
     };
-
-
-});
-
-app.controller('addIngredientController', function ($scope) {
-    
-    $scope.addIngredient = function (item) {
+    $scope.addIngredient = function () {
         $scope.tempIngredientList.push($scope.ingredient.name);
-       // $scope.$apply();
-        console.log(tempIngredientList[0]);
+        document.getElementById("kg/piece").innerHTML = "";
+        console.log($scope.tempIngredientList);
+        $scope.$eval();
     }
 });
+
+
+
+
+
