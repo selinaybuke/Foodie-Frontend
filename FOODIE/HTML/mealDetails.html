@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
-    <script src="../js/fridgeDetail.js"></script>
+    <script src="../js/mealDetails.js"></script>
 </head>
 <nav class="head">
     <a href="../HTML/homepage.html">
@@ -38,8 +38,8 @@
 </nav>
 
 <body>
-    <main ng-app="fridgeDetail">
-        <div class="row"
+    <main ng-app="mealDetailsApp">
+        <div class="row" ng-controller="mealDetailsController" data-ng-init="init()"
             style="position:relative; height: 90%; width: 90%; font-family: 'Courier New', monospace !important; margin-top: 2%;">
             <div class="col-sm-3" style="padding:0px;"></div>
             <div class="col-sm-7" id="container">
