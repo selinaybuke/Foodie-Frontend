@@ -15,13 +15,9 @@ app.controller('fridgeInitController', ['$scope', function ($scope) {
         xhr.open("GET", "http://localhost:8080/api/fridge/getRelationByFridgeId?id=" + localStorage.getItem("fridgeId"));
         xhr.send();
     };
-
-
-
-
-
 }]);
 app.controller('ingredientController', function ($scope) {
+    $scope.tempIngredientList = [];
     $scope.ingredient = {
         name: "",
         readonly: true
@@ -45,8 +41,20 @@ app.controller('ingredientController', function ($scope) {
     $scope.selectTypeAhead = function ($item) {
 
         $scope.ingredient.name = $item.name;
+
         console.log($scope.ingredient.name);
+        console.log($scope.fridgeName);
 
     };
 
+
+});
+
+app.controller('addIngredientController', function ($scope) {
+    
+    $scope.addIngredient = function (item) {
+        $scope.tempIngredientList.push($scope.ingredient.name);
+       // $scope.$apply();
+        console.log(tempIngredientList[0]);
+    }
 });

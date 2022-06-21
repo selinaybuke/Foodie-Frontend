@@ -44,21 +44,24 @@
             <div class="col-sm-3" style="padding:0px;"></div>
             <div class="col-sm-7" id="container">
                 <div>
-                    <label id="name">Pasta with Garlic, Scallions, Caulifower & Breadcrumbs</label>
+                    <label id="name">{{mealDetail.title}}</label>
                 </div>
                 <br>
                 <div class="row">
                     <div class="col-sm-1"></div>
                     <div class="col-sm-6" style="font-weight: 100; width: 50%; height: 100%;">
                         <br>
-                        <label for="">Pasta</label><br>
-                        <label for="">Butter</label><br>
-                        <label for="">Cheese</label><br>
-                        <label for="">...</label><br>
+                        <label for="">Ingredients</label><br>
+                        <ol>
+                            <li ng-repeat="item in mealDetail.extendedIngredients">{{item.name}} {{item.amount}} {{item.unit}}</li>
+                        </ol>
+
                     </div>
                     <div class="col-sm-5">
-                        <img src="../IMAGES/backg.jpg" alt="" style="width: 90%;">
+                        <img src="{{mealDetail.image}}" alt="" style="width: 90%;">
                     </div>
+
+                    {{mealDetail.instructions}}
                 </div>
                 <div>
                 </div>

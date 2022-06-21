@@ -88,8 +88,8 @@
                                 style=" margin-left:50%; width: 60px; height: 30px; background-color: rgba(255, 255, 255, 0.37);"
                                 required>
                         </div>
-                        <div class="col-sm-1">
-                            <button type="submit" style="border: 0px; background: 0px;" onclick="add();"><img
+                        <div class="col-sm-1" ng-controller="addIngredientController">
+                            <button type="submit" style="border: 0px; background: 0px;" ng-click="addIngredient()"><img
                                     src=" ../IMAGES/addsign.png" alt="adding"
                                     style=" margin-left:80%; width: 20px; opacity:70%;"></button>
                         </div>
