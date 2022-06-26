@@ -20,6 +20,8 @@ app.controller('ingredientController', function ($scope) {
     $scope.tempIngredientList = [];
     $scope.ingredient = {
         name: "",
+        unit: "",
+        amount: "",
         readonly: true
     };
     $scope.getIngredient = function () {
@@ -30,7 +32,7 @@ app.controller('ingredientController', function ($scope) {
                 // console.log(this.responseText);
                 const response = JSON.parse(this.response)
                 $scope.ingredients = response;
-                $scope.$apply();
+                // $scope.$apply();
             }
         });
 
@@ -41,26 +43,24 @@ app.controller('ingredientController', function ($scope) {
 
     }
     $scope.selectTypeAhead = function ($item) {
-        document.getElementById("kg/piece").innerHTML = "";
         $scope.ingredient.name = $item.name;
         var xhr = new XMLHttpRequest();
         xhr.addEventListener("readystatechange", function () {
             if (this.readyState === 4) {
                 const response = JSON.parse(this.response)
                 $scope.ingredientsDetail = response;
-                console.log($scope.ingredientsDetail.results[0].id);
-                $scope.$apply();
 
                 var xhr = new XMLHttpRequest();
 
                 xhr.addEventListener("readystatechange", function () {
                     if (this.readyState === 4) {
-                        console.log(this.responseText);
+                        // console.log(this.responseText);
                         const response = JSON.parse(this.response)
                         $scope.ingredientUnits = response;
-                        console.log($scope.ingredientUnits.possibleUnits);
-                        console.log($scope.ingredientUnits);
+
                         $scope.$apply();
+                        console.log($scope.tempIngredientList);
+
                     }
                 });
 
@@ -75,12 +75,34 @@ app.controller('ingredientController', function ($scope) {
 
     };
     $scope.addIngredient = function () {
-        $scope.tempIngredientList.push($scope.ingredient.name);
-        document.getElementById("kg/piece").innerHTML = "";
+        $scope.tempIngredientList.push($scope.ingredient);
         console.log($scope.tempIngredientList);
-        $scope.$eval();
     }
 });
+
+
+
+
+//----------------------
+app.controller('fridgeInitNosqlController', ['$scope', function ($scope) {
+    $scope.init = function () {
+        var xhr = new XMLHttpRequest();
+
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === 4) {
+                console.log("halil")
+                const response = JSON.parse(this.response)
+                $scope.FridgeCurrent = response;
+                $scope.$apply();
+                console.log($scope.FridgeCurrent.Ingredient[0].name);
+            }
+        });
+
+        xhr.open("GET", "http://localhost:8080/api/nosql/getList?username=" + localStorage.getItem("fridgeId"));
+
+        xhr.send();
+    };
+}]);
 
 
 
