@@ -5,22 +5,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meal List</title>
+    <title>Meal Details</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"
         integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../CSS/mealist.css">
+    <link rel="stylesheet" href="../CSS/fridgeMealDetails.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.js"></script>
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter&family=Karla&family=Poppins:wght@500&family=Russo+One&family=Shadows+Into+Light&family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
-    <script src="../js/mealist.js"></script>
+    <script src="../js/mealDetailsOnlist.js"></script>
 </head>
 <nav class="head">
     <a href="../HTML/homepage.html">
@@ -38,30 +43,51 @@
 </nav>
 
 <body>
-    <main ng-app="mealistApp">
-        <br><br>
-        <div style="text-align: center;" ng-controller="mealListController" data-ng-init="init();getMeal();">
-            <h1 style="position:relative; left:0px; width: 100%; height: 6%;">Meal List</h1><br><br><br>
-            <div class="col-sm-3"></div>
-            <div class="col-sm-6">
-                <div class="row" id="fb" ng-repeat="item in mealDetail" ng-hide="!mealDetail.length">
-                    <div class="col-sm-1"></div>
-                    <div class="col-sm-9">
-                        <label id="name"><b>{{item.title}}</b></label><br s>
-                        <label id="match" ng-repeat="x in item.usedIngredients"><b>{{x.name}}</b></label>
-                        <label id="unmatch" ng-repeat="x in item.missedIngredients"><b>{{x.name}}</b></label>
-                    </div>
-                    <div class="col" id="button-block" style="position: relative; right: 0px; width: 20%;">
-                        <button type="button" class="fa-solid fa-greater-than" aria-hidden="true"
-                            onClick="parent.location='favourite.html'" id="favourite"></button>
-                        <button type="button" class="fa-solid fa-greater-than" aria-hidden="true"
-                        ng-click="getDetailRecipe(item)" id="favourite"></button>
-                    </div>
-                </div><br>
-            </div>
-        </div>
+    <main ng-app="mealDetailsApp">
+        <div class="row" style="position:relative; width: 97%; left: 3%; top: 3%;" ng-controller="mealDetailsController" data-ng-init="init()">
+            <h1>{{fridgeName[0].fridge.name}}</h1>
         </div>
 
+        <div class="row"
+            style="position:relative; height: 90%; width: 90%;  font-family: 'Shadows Into Light Two', cursive " ng-controller="DetailMealController" data-ng-init="getMeal()">
+            <div class="col-sm-3" style="padding:0px; font-family:'Courier New', Courier, monospace "></div>
+            <div class="col-sm-7" id="container">
+                <div>
+                    <label id="name">{{mealDetail.title}}</label>
+                </div>
+                <br>
+                <div class="row" style="height: 80%;">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-6" style=" width: 50%; ">
+                        <br>
+                        <label for="">Ingredients</label><br>
+                        <ol>
+                            <li ng-repeat="item in mealDetail[0].usedIngredients">{{item.name}} {{item.amount}} {{item.unit}}</li>
+                        </ol>
+                        <ol>
+                            <li ng-repeat="item in mealDetail.extendedIngredients">{{item.name}} {{item.amount}} {{item.unit}}</li>
+                        </ol>
+
+
+                        <label for="">MissedIngredients</label><br>
+                        <ol>
+                            <li ng-repeat="item in mealDetail[0].missedIngredients">{{item.name}} {{item.amount}} {{item.unit}}</li>
+                        </ol>
+
+                    </div>
+                    <div class="col-sm-5">
+                        <img src="{{mealDetail.image}}" alt="" style="width: 90%;">
+                    </div>
+                    {{mealDetail.instructions}}
+                </div>
+                <div style="width: 100%; text-align: right;">
+                    <button id="ticksign" value="tick" type="submit" class="fa-solid fa-check"
+                        ng-click="acceptFridge(item.id)"></button>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+    </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

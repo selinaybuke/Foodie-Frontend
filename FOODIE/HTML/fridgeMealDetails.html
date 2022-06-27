@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
-    <script src="../js/fridgeDetail.js"></script>
+    <script src="../js/fridgeMealDetail.js"></script>
 </head>
 <nav class="head">
     <a href="../HTML/homepage.html">
@@ -43,31 +43,42 @@
 </nav>
 
 <body>
-    <main ng-app="fridgeDetail">
-        <div class="row" style="position:relative; width: 97%; left: 3%; top: 3%;">
-            <h1>Dou Fridge</h1>
+    <main ng-app="fridgeMealDetail">
+        <div class="row" style="position:relative; width: 97%; left: 3%; top: 3%;" ng-controller="mealDetailsController" data-ng-init="init()">
+            <h1>{{fridgeName[0].fridge.name}}</h1>
         </div>
 
         <div class="row"
-            style="position:relative; height: 90%; width: 90%;  font-family: 'Shadows Into Light Two', cursive ">
+            style="position:relative; height: 90%; width: 90%;  font-family: 'Shadows Into Light Two', cursive " ng-controller="DetailMealController" data-ng-init="getMeal()">
             <div class="col-sm-3" style="padding:0px; font-family:'Courier New', Courier, monospace "></div>
             <div class="col-sm-7" id="container">
                 <div>
-                    <label id="name">Pasta with Garlic, Scallions, Caulifower & Breadcrumbs</label>
+                    <label id="name">{{mealDetail[0].title}}</label>
                 </div>
                 <br>
                 <div class="row" style="height: 80%;">
                     <div class="col-sm-1"></div>
                     <div class="col-sm-6" style=" width: 50%; ">
                         <br>
-                        <label for="">Pasta</label><br>
-                        <label for="">Butter</label><br>
-                        <label for="">Cheese</label><br>
-                        <label for="">...</label><br>
+                        <label for="">Ingredients</label><br>
+                        <ol>
+                            <li ng-repeat="item in mealDetail[0].usedIngredients">{{item.name}} {{item.amount}} {{item.unit}}</li>
+                        </ol>
+                        <ol>
+                            <li ng-repeat="item in mealDetailD.extendedIngredients">{{item.name}} {{item.amount}} {{item.unit}}</li>
+                        </ol>
+
+
+                        <label for="">MissedIngredients</label><br>
+                        <ol>
+                            <li ng-repeat="item in mealDetail[0].missedIngredients">{{item.name}} {{item.amount}} {{item.unit}}</li>
+                        </ol>
+
                     </div>
                     <div class="col-sm-5">
-                        <img src="../IMAGES/backg.jpg" alt="" style="width: 90%;">
+                        <img src="{{mealDetail[0].image}}" alt="" style="width: 90%;">
                     </div>
+                    {{mealDetailD.instructions}}
                 </div>
                 <div style="width: 100%; text-align: right;">
                     <button id="ticksign" value="tick" type="submit" class="fa-solid fa-check"
@@ -76,6 +87,7 @@
             </div>
             <div class="col-sm-2"></div>
         </div>
+    </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

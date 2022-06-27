@@ -102,6 +102,17 @@ app.controller('fridgeInitNosqlController', ['$scope', function ($scope) {
 
         xhr.send();
     };
+    $scope.LuckyMeal = function () {
+        localStorage.setItem("currentFridge", JSON.stringify($scope.FridgeCurrent))
+        window.location.href = 'http://127.0.0.1:5501/FOODIE/HTML/fridgeMealDetails.html';
+    }
+
+    $scope.MealList = function () {
+        localStorage.setItem("currentFridge", JSON.stringify($scope.FridgeCurrent))
+        window.location.href = 'http://127.0.0.1:5501/FOODIE/HTML/mealist.html';
+    }
+
+
 }]);
 
 
