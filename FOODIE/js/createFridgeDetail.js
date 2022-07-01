@@ -20,9 +20,12 @@ app.controller('ingredientController', function ($scope) {
     $scope.tempIngredientList = [];
     $scope.ingredient = {
         name: "",
-        unit: "",
+        possibleUnit: "",
         amount: "",
-        readonly: true
+        fridgeId: localStorage.getItem("fridgeId"),
+        spoonID: "",
+        check: false
+
     };
     $scope.getIngredient = function () {
         var xhr = new XMLHttpRequest();
@@ -78,6 +81,31 @@ app.controller('ingredientController', function ($scope) {
         $scope.tempIngredientList.push($scope.ingredient);
         console.log($scope.tempIngredientList);
     }
+
+
+    $scope.saveIngredientNosql = function () {
+        var data = JSON.stringify([
+            {
+                "name": $scope.ingredient.name,
+                "spoonID": "",
+                "fridgeID": $scope.ingredient.fridgeId,
+                "amount": $scope.ingredient.amount,
+                "possibleUnit": $scope.ingredient.possibleUnit
+            }
+        ]);
+        var xhr = new XMLHttpRequest();
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === 4) {
+                console.log(this.responseText);
+            }
+        });
+
+        xhr.open("POST", "http://localhost:8080/api/nosql/addList");
+        xhr.setRequestHeader("Content-Type", "application/json");
+        console.log($scope.ingredient);
+        xhr.send(data);
+
+    }
 });
 
 
@@ -87,7 +115,6 @@ app.controller('ingredientController', function ($scope) {
 app.controller('fridgeInitNosqlController', ['$scope', function ($scope) {
     $scope.init = function () {
         var xhr = new XMLHttpRequest();
-
         xhr.addEventListener("readystatechange", function () {
             if (this.readyState === 4) {
                 console.log("halil")
@@ -103,17 +130,58 @@ app.controller('fridgeInitNosqlController', ['$scope', function ($scope) {
         xhr.send();
     };
     $scope.LuckyMeal = function () {
-        localStorage.setItem("currentFridge", JSON.stringify($scope.FridgeCurrent))
+        //console.log($scope.x)
+        localStorage.setItem("currentFridge", JSON.stringify($scope.FridgeCurrent.Ingredient))
+        preferences();
+        allergens();
         window.location.href = 'http://127.0.0.1:5501/FOODIE/HTML/fridgeMealDetails.html';
     }
 
     $scope.MealList = function () {
-        localStorage.setItem("currentFridge", JSON.stringify($scope.FridgeCurrent))
+        localStorage.setItem("currentFridge", JSON.stringify($scope.FridgeCurrent.Ingredient))
+        preferences();
+        allergens();
         window.location.href = 'http://127.0.0.1:5501/FOODIE/HTML/mealist.html';
     }
 
+    var preferences = function () {
+        console.log("halil")
+        var xhr = new XMLHttpRequest();
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === 4) {
+                const response = JSON.parse(this.response)
+                $scope.preference = response;
+                localStorage.setItem("preference", JSON.stringify($scope.preference))
+                console.log($scope.preference)
+            }
+        });
 
+        xhr.open("GET", "http://localhost:8080/api/preferences/getPreferenceById?id=" + localStorage.getItem("userId"));
+
+        xhr.send();
+    }
+
+    var allergens = function () {
+
+        var xhr = new XMLHttpRequest();
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === 4) {
+                const response = JSON.parse(this.response)
+                $scope.allergen = response;
+                localStorage.setItem("allergen", JSON.stringify($scope.allergen))
+
+            }
+        });
+
+        xhr.open("GET", "http://localhost:8080/api/allergen/getAllergenByUserId?id=" + localStorage.getItem("userId"));
+
+        xhr.send();
+
+    }
 }]);
+
+
+
 
 
 

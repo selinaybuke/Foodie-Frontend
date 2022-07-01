@@ -98,7 +98,7 @@
 
                                 <div ng-repeat="item in tempIngredientList" ng-hide="!tempIngredientList.length">
                                     <div class="items row col-sm-7 align-items-center">
-                                        {{item.name}} {{item.amount}} {{item.unit}}
+                                        {{item.name}} {{item.amount}} {{item.possibleUnit}}
                                     </div>
                                     <br>
                                     <div class="col">
@@ -110,7 +110,7 @@
                             <br>
                         </div>
                         <div style="text-align: center;">
-                            <input type="submit" class="save" ng-click="saveIngredientNosql"
+                            <input type="submit" class="save" ng-click="saveIngredientNosql()"
                                 ng-hide="!tempIngredientList.length" value="SAVE" required>
                         </div>
                     </form>
@@ -141,13 +141,15 @@
                                     </th>
                                 </tr>
                             </thead>
-                            <tr style=" border-bottom: 1pt solid black;" ng-repeat="item in FridgeCurrent.Ingredient">
+                            <tr style=" border-bottom: 1pt solid black;"
+                                ng-repeat="(key, value) in   FridgeCurrent.Ingredient"
+                                ng-init="value.isSelected = true;">
                                 <td style="text-align: center; border-right: 1pt solid black; width: 50%; ">
-                                    <input type="checkbox" ng-model="FridgeCurrent[$index]">
-                                    {{item.name}}
+                                    <input type="checkbox" ng-model="value.isSelected">
+                                    {{value.name}}
                                 </td>
                                 <td style="text-align: center; width: 50%;">
-                                    {{item.possibleUnit}} {{item.amount}}
+                                    {{value.possibleUnit}} {{value.amount}}
                                 </td>
                             </tr>
 

@@ -40,11 +40,11 @@
 <body>
     <main ng-app="mealistApp">
         <br><br>
-        <div style="text-align: center;" ng-controller="mealListController" data-ng-init="init();getMeal();">
+        <div style="text-align: center;" ng-controller="mealListController" data-ng-init="init();">
             <h1 style="position:relative; left:0px; width: 100%; height: 6%;">Meal List</h1><br><br><br>
             <div class="col-sm-3"></div>
             <div class="col-sm-6">
-                <div class="row" id="fb" ng-repeat="item in mealDetail" ng-hide="!mealDetail.length">
+                <div class="row" id="fb" ng-repeat="item in mealDetail.results" ng-hide="!mealDetail.results.length">
                     <div class="col-sm-1"></div>
                     <div class="col-sm-9">
                         <label id="name"><b>{{item.title}}</b></label><br s>
