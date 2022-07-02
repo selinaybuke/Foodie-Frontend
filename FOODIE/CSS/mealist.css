@@ -117,6 +117,17 @@ h1 {
     background: none;
     color: #030303;
 }
+.butFav {
+    position: relative;
+    border: 0;
+    font-size: 22px;
+    float: right;
+    margin-right: 1%;
+    margin-top: 17px;
+    padding-right: 15px;
+    background: none;
+    color: #030303;
+}
 
 button[type="submit"] {
     height: 60px;

@@ -54,7 +54,7 @@ app.controller('checkPreferencesController', ['$scope', function ($scope) {
             }
         });
 
-        xhr.open("GET", "https://api.spoonacular.com/food/ingredients/autocomplete?query=" + $scope.allergen + "&number=5&apiKey=c41e117a8ec343168d08c412fd210144");
+        xhr.open("GET", "https://api.spoonacular.com/food/ingredients/autocomplete?query=" + $scope.allergen + "&number=5&apiKey=451e4340a6274c60ad61d133ef6798a0");
         //TODO API KEYİ UNUTMA
 
         xhr.send();

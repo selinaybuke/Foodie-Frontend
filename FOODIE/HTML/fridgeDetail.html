@@ -142,10 +142,10 @@
                                 </tr>
                             </thead>
                             <tr style=" border-bottom: 1pt solid black;"
-                                ng-repeat="(key, value) in   FridgeCurrent.Ingredient"
+                                ng-repeat="(key, value) in   FridgeCurrent"
                                 ng-init="value.isSelected = true;">
                                 <td style="text-align: center; border-right: 1pt solid black; width: 50%; ">
-                                    <input type="checkbox" ng-model="value.isSelected">
+                                    <input type="checkbox" ng-model="value.isSelected" >
                                     {{value.name}}
                                 </td>
                                 <td style="text-align: center; width: 50%;">

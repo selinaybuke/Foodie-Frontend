@@ -19,18 +19,45 @@ app.controller('mealListController', ['$scope', function ($scope) {
         xhr.open("GET", "http://localhost:8080/api/fridge/getRelationByFridgeId?id=" + localStorage.getItem("fridgeId"));
         xhr.send();
     };
+    $scope.AddItemFAV = function (item,index) {
+        // var element=document.getElementsByClassName('fa-heart')
+        console.log('favourite' + index)
+        var element = document.getElementById('favourite' + index)
+        element.classList.remove('fa-regular')
+        element.classList.add('fa')
+        var data = JSON.stringify({
+            "spoonApiId": item.id,
+            "title": item.title,
+            "imageURL": "",
+            "appUser": {
+                "id": localStorage.getItem("userId")
+            }
+        });
+
+        var xhr = new XMLHttpRequest();
+
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === 4) {
+                console.log(this.responseText);
 
 
+            }
+        });
 
+        xhr.open("POST", "http://localhost:8080/api/fav/create");
+        xhr.setRequestHeader("Content-Type", "application/json");
 
+        xhr.send(data);
+    }
 
     var getMeal = function () {
         var current = JSON.parse(localStorage.getItem("currentFridge"));
         var allergen = JSON.parse(localStorage.getItem("allergen"));
+        var currentARR = Object.values(current);
         var fridgeString = "";
-        for (let i = 0; i < current.length; i++) {
-            if (current[i].isSelected) {
-                fridgeString += current[i].name + ",";
+        for (let i = 0; i < currentARR.length; i++) {
+            if (currentARR[i].isSelected) {
+                fridgeString += currentARR[i].name + ",";
             }
 
         }
@@ -68,7 +95,7 @@ app.controller('mealListController', ['$scope', function ($scope) {
                 $scope.$apply();
             }
         });
-        xhr.open("GET", "https://api.spoonacular.com/recipes/complexSearch?apiKey=c41e117a8ec343168d08c412fd210144&iet=" + prefString + "&intolerances=" + prefGluten + "&includeIngredients=" + fridgeString + "&&ignorePantry=true&excludeIngredients=" + x);
+        xhr.open("GET", "https://api.spoonacular.com/recipes/complexSearch?apiKey=451e4340a6274c60ad61d133ef6798a0&diet=" + prefString + "&intolerances=" + prefGluten + "&includeIngredients=" + fridgeString + "&&ignorePantry=true&excludeIngredients=" + x);
 
         xhr.send();
 
@@ -100,11 +127,5 @@ app.controller('mealListController', ['$scope', function ($scope) {
 
 
 }]);
-
-async function test() {
-    console.log('start timer');
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    console.log('after 1 second');
-}
 
 

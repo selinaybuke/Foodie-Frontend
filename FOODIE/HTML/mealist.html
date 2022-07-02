@@ -52,8 +52,12 @@
                         <label id="unmatch" ng-repeat="x in item.missedIngredients"><b>{{x.name}}</b></label>
                     </div>
                     <div class="col" id="button-block" style="position: relative; right: 0px; width: 20%;">
+
                         <button type="button" class="fa-solid fa-greater-than" aria-hidden="true"
-                        ng-click="getDetailRecipe(item)" id="favourite"></button>
+                            ng-click="getDetailRecipe(item)" id="favourite"></button>
+                        <button type="button" class="fa-regular fa-heart butFav" aria-hidden="true"
+                            ng-click="AddItemFAV(item,$index)" id="favourite{{$index}}"></button>
+
                     </div>
                 </div><br>
             </div>
