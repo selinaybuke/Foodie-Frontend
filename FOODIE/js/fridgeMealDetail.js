@@ -80,7 +80,7 @@ app.controller('DetailMealController', ['$scope', function ($scope) {
                     }
                 });
 
-                xhr.open("GET", "https://api.spoonacular.com/recipes/" + $scope.mealDetail.results[0].id + "/information?includeNutrition=false&apiKey=451e4340a6274c60ad61d133ef6798a0");
+                xhr.open("GET", "https://api.spoonacular.com/recipes/" + $scope.mealDetail.results[0].id + "/information?includeNutrition=false&apiKey=c41e117a8ec343168d08c412fd210144");
                 xhr.send();
 
                 console.log("halil")
@@ -92,7 +92,7 @@ app.controller('DetailMealController', ['$scope', function ($scope) {
 
         });
         console.log("https://api.spoonacular.com/recipes/complexSearch?apiKey=451e4340a6274c60ad61d133ef6798a0&diet=" + prefString + "&intolerances=" + prefGluten + "&includeIngredients=" + fridgeString + "&&ignorePantry=true&excludeIngredients=" + x)
-        xhr.open("GET", "https://api.spoonacular.com/recipes/complexSearch?apiKey=451e4340a6274c60ad61d133ef6798a0&diet=" + prefString + "&intolerances=" + prefGluten + "&includeIngredients=" + fridgeString + "&&ignorePantry=true&excludeIngredients=" + x);
+        xhr.open("GET", "https://api.spoonacular.com/recipes/complexSearch?apiKey=c41e117a8ec343168d08c412fd210144&diet=" + prefString + "&intolerances=" + prefGluten + "&includeIngredients=" + fridgeString + "&&ignorePantry=false&excludeIngredients=" + x);
 
         xhr.send();
     }
@@ -101,7 +101,10 @@ app.controller('DetailMealController', ['$scope', function ($scope) {
     $scope.updataFridge = function () {
         var data = "";
         $scope.mealDetailD.extendedIngredients.forEach(element => {
-            data = JSON.stringify([
+            if (element.unit == "") {
+                return;
+            }
+            data = JSON.stringify(
                 {
                     "name": element.name,
                     "spoonID": 2,
@@ -109,10 +112,11 @@ app.controller('DetailMealController', ['$scope', function ($scope) {
                     "amount": element.amount,
                     "possibleUnit": element.unit
                 }
-            ]);
-            data += data;
+            );
+            data += ",";
         });
-
+        data = data.slice(0, -1)
+        data = "[" + data + "]";
         console.log(data)
 
         var xhr = new XMLHttpRequest();

@@ -13,7 +13,7 @@ app.controller('mealDetailsController', ['$scope', function ($scope) {
             }
         });
 
-        xhr.open("GET", "https://api.spoonacular.com/recipes/" + localStorage.getItem("spoonID") + "/information?includeNutrition=false&apiKey=451e4340a6274c60ad61d133ef6798a0");
+        xhr.open("GET", "https://api.spoonacular.com/recipes/" + localStorage.getItem("spoonID") + "/information?includeNutrition=false&apiKey=c41e117a8ec343168d08c412fd210144");
         xhr.send();
     };
 }]);

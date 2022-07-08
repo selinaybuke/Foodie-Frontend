@@ -19,7 +19,7 @@ app.controller('mealListController', ['$scope', function ($scope) {
         xhr.open("GET", "http://localhost:8080/api/fridge/getRelationByFridgeId?id=" + localStorage.getItem("fridgeId"));
         xhr.send();
     };
-    $scope.AddItemFAV = function (item,index) {
+    $scope.AddItemFAV = function (item, index) {
         // var element=document.getElementsByClassName('fa-heart')
         console.log('favourite' + index)
         var element = document.getElementById('favourite' + index)
@@ -91,11 +91,16 @@ app.controller('mealListController', ['$scope', function ($scope) {
                 const response = JSON.parse(this.response)
                 $scope.mealDetail = response;
                 console.log($scope.mealDetail)
+                if (response.totalResults == 0) {
+                    alert("No recipes were found matching your search criteria.")
+                }
+
+
                 console.log("halil")
                 $scope.$apply();
             }
         });
-        xhr.open("GET", "https://api.spoonacular.com/recipes/complexSearch?apiKey=451e4340a6274c60ad61d133ef6798a0&diet=" + prefString + "&intolerances=" + prefGluten + "&includeIngredients=" + fridgeString + "&&ignorePantry=true&excludeIngredients=" + x);
+        xhr.open("GET", "https://api.spoonacular.com/recipes/complexSearch?apiKey=c41e117a8ec343168d08c412fd210144&diet=" + prefString + "&number=5&intolerances=" + prefGluten + "&includeIngredients=" + fridgeString + "&&ignorePantry=true&excludeIngredients=" + x);
 
         xhr.send();
 

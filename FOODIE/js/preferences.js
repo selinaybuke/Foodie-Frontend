@@ -61,7 +61,7 @@ app.controller('checkPreferencesController', ['$scope', function ($scope) {
             }
         });
         console.log($scope.allergen)
-        xhr.open("GET", "https://api.spoonacular.com/food/ingredients/autocomplete?query=" + $scope.allergen.name + "&number=5&apiKey=451e4340a6274c60ad61d133ef6798a0");
+        xhr.open("GET", "https://api.spoonacular.com/food/ingredients/autocomplete?query=" + $scope.allergen.name + "&number=5&apiKey=c41e117a8ec343168d08c412fd210144");
 
         xhr.send();
     }
@@ -153,7 +153,7 @@ app.controller('checkPreferencesController', ['$scope', function ($scope) {
             if (this.readyState === 4) {
                 console.log(this.responseText);
                 const response = JSON.parse(this.responseText)
-                alert(response[0].name+" Allergens add")
+               // alert(response[0].name+" Allergens add")
                 
                 window.location.href = 'http://127.0.0.1:5501/FOODIE/HTML/myfridge.html';
             }

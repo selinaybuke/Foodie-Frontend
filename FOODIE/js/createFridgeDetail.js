@@ -39,7 +39,7 @@ app.controller('ingredientController', function ($scope) {
             }
         });
 
-        xhr.open("GET", "https://api.spoonacular.com/food/ingredients/autocomplete?query=" + $scope.ingredient.name + "&apiKey=451e4340a6274c60ad61d133ef6798a0");
+        xhr.open("GET", "https://api.spoonacular.com/food/ingredients/autocomplete?query=" + $scope.ingredient.name + "&apiKey=c41e117a8ec343168d08c412fd210144");
 
         xhr.send();
 
@@ -67,13 +67,13 @@ app.controller('ingredientController', function ($scope) {
                     }
                 });
 
-                xhr.open("GET", "https://api.spoonacular.com/food/ingredients/" + $scope.ingredientsDetail.results[0].id + "/information?apiKey=451e4340a6274c60ad61d133ef6798a0");
+                xhr.open("GET", "https://api.spoonacular.com/food/ingredients/" + $scope.ingredientsDetail.results[0].id + "/information?apiKey=c41e117a8ec343168d08c412fd210144");
 
                 xhr.send();
             }
         });
 
-        xhr.open("GET", "https://api.spoonacular.com/food/ingredients/search?query=" + $scope.ingredient.name + "&apiKey=451e4340a6274c60ad61d133ef6798a0");
+        xhr.open("GET", "https://api.spoonacular.com/food/ingredients/search?query=" + $scope.ingredient.name + "&apiKey=c41e117a8ec343168d08c412fd210144");
         xhr.send();
 
     };
